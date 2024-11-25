@@ -30,11 +30,19 @@
             <div class="prenom flex flex-col w-3/4 md:mx-left mx-auto bg-transparent">
                 <label for="name">Telephone</label>
                 <input 
-                    type="number" 
+                    type="tel" 
                     class="p-3 bg-[#BABABA]"
                     name="telInput" 
                     id="telInput"
                 >
+            </div>    
+            <div class="flex gap-3 mx-auto">
+                <div>
+                   <select name="cohorte" id="cohorte" class="border border-black p-0.5 rounded-lg">
+                        <option value="cohorte1">Cohorte 1</option>
+                        <option value="cohorte2">Cohorte 2</option>
+                   </select>
+                </div>
             </div>
             <button class="text-white md:ml-[68%] mx-auto bg-[#342E37] p-3 w-1/5">Ajouter</button>
         </form>
