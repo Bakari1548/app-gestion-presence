@@ -1,21 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Liste de présence</title>
-    <link rel="stylesheet" href="output.css">
-</head>
-<body>
-    <header class="bg-stone-500 h-16 p-5">
-        <nav>
-            <ul class="flex justify-center items-center gap-4 text-white">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Historique</a></li>
-                <li><a href="pages/ajout.html">Ajout</a></li>
-            </ul>
-        </nav>
-    </header>
+<?php
+include('includes/header.php')
+?>
     <section class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5">
         <div class="mx-auto max-w-screen-xl px-4 lg:px-12">
             
