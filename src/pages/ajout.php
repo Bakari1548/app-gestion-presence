@@ -7,18 +7,19 @@ try {
 }
 if(isset($_POST['send'])){
     if(
-        !isset($_POST['prenom']) || !isset($_POST['nom']) || !isset($_POST['email']) || !isset($_POST['telephone'])
+        !isset($_POST['firstNameInput']) || !isset($_POST['lastNameInput']) || !isset($_POST['email']) || !isset($_POST['telInput']) || !isset($_POST['cohorte'])
     ){
         echo 'Remplir le formulaire.';
         return;
     }
     
-    $prenom = $_POST['prenom'];
-    $nom = $_POST['nom'];
+    $prenom = $_POST['firstNameInput'];
+    $nom = $_POST['lastNameInput'];
     $email = $_POST['email'];
-    $telephone = $_POST['telephone'];
+    $telephone = $_POST['telInput'];
+    $cohorte = $_POST['cohorte'];
   
-    $sqlQuery = 'INSERT INTO useradd(prenom, nom, email, telephone) VALUES (:prenom, :nom, :email, :telephone)';
+    $sqlQuery = 'INSERT INTO apprenants(prenom, nom, email, telephone, cohorte) VALUES (:prenom, :nom, :email, :telephone, :cohorte)';
     
     $insertRecipe = $pdo->prepare($sqlQuery);
     
@@ -28,6 +29,7 @@ if(isset($_POST['send'])){
             ':nom' => $nom,
             ':email' => $email,
             ':telephone' => $telephone,
+            ':cohorte' => $cohorte,
         ]);
     
         echo "L'utilisateur a été ajouté avec succès !";
@@ -57,6 +59,7 @@ if(isset($_POST['send'])){
                     class="p-3 bg-[#BABABA]"
                     name="firstNameInput" 
                     id="firstNameInput"
+                    required
                 >
             </div>
             <div class="prenom flex flex-col w-3/4 md:mx-left mx-auto bg-transparent">
@@ -66,15 +69,27 @@ if(isset($_POST['send'])){
                     class="p-3 bg-[#BABABA]"
                     name="lastNameInput" 
                     id="lastNameInput"
+                    required
+                >
+            </div>
+            <div class="prenom flex flex-col w-3/4 md:mx-left mx-auto bg-transparent">
+                <label for="name">Email</label>
+                <input 
+                    type="email" 
+                    class="p-3 bg-[#BABABA]"
+                    name="email" 
+                    id="email"
+                    required
                 >
             </div>
             <div class="prenom flex flex-col w-3/4 md:mx-left mx-auto bg-transparent">
                 <label for="name">Telephone</label>
                 <input 
-                    type="tel" 
+                    type="" 
                     class="p-3 bg-[#BABABA]"
                     name="telInput" 
                     id="telInput"
+                    required
                 >
             </div>    
             <div class="flex gap-3 mx-auto">
@@ -85,7 +100,7 @@ if(isset($_POST['send'])){
                    </select>
                 </div>
             </div>
-            <button class="text-white md:ml-[68%] mx-auto bg-[#342E37] p-3 w-1/5" type="submit">Ajouter</button>
+            <button class="text-white md:ml-[68%] mx-auto bg-[#342E37] p-3 w-1/5" type="submit" name="send">Ajouter</button>
         </form>
         <div class="md:w-1/2 w-full p-10 bg-[#342E37] flex justify-center items-center">
             <h2 class="text-3xl font-bold text-white md:mt-28 my-28 text-center">Ajouter un apprenant</h2>
